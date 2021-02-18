@@ -4,17 +4,9 @@
 
 def main():
 
-    my_int = int(input())
-    my_dict = {}
-    my_list = list(range(1, my_int + 1))
-    for n in range(1, my_int + 1):
-        if n in my_list:
-            my_dict[n] = my_list[0:n]
-            my_dict[n] += list(range(n-1, 0, -1))
-            for l in range(0, len(my_dict[n])):
-                my_dict[n][l] = my_dict[n][l] * ((10) ** (len(my_dict[n]) - 1 - l))
-            my_dict[n] = sum(my_dict[n])
-            print(my_dict[n])
+    for n in range(1, int(input())+1):
+        xx = list(range(1, n)) + list(range(n, 0, -1))
+        print(sum([xx[l] * (10 ** (len(xx) - 1 - l)) for l in range(0, len(xx))]))
 
 if __name__ == "__main__":
 	main()
